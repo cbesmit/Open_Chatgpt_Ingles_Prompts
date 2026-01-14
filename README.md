@@ -13,7 +13,7 @@ Clasificación:
 
 Sistema de aprendizaje dentro de un **proyecto** de ChatGPT con:
 
-- **Contexto persistente** en `evaluaciones.json`, `temario.json`, `terminos.json`.
+- **Contexto persistente** en `evaluaciones.json.md`, `temario.json`, `terminos.json`.
     
 - **Flujo cíclico**: diagnóstico/examen → plan → clases → práctica → términos → re‑evaluación.
     
@@ -112,15 +112,15 @@ Sistema de aprendizaje dentro de un **proyecto** de ChatGPT con:
 
 |Chat|Usa archivos|Actualiza (indirecto)|Propósito breve|
 |---|---|---|---|
-|**evaluaciones**|`evaluaciones.json`, `temario.json`|`evaluaciones.json`|Diagnóstico y exámenes; propone decisión|
-|**temario**|`evaluaciones.json`, `terminos.json`|`temario.json`|Plan ACTUAL y versiones|
-|**clases**|`evaluaciones.json`, `temario.json`, `terminos.json`|`temario.json`, `terminos.json`|Enseñanza + mini‑test + términos|
-|**ejercicios y prácticas**|`evaluaciones.json`, `temario.json`, `terminos.json`|`terminos.json` (y posible `temario.json`)|Práctica aplicada y feedback|
-|**términos**|`evaluaciones.json`, `temario.json`, `terminos.json`|`terminos.json`|SRS de conceptos/snippets|
+|**evaluaciones**|`evaluaciones.json.md`, `temario.json`|`evaluaciones.json.md`|Diagnóstico y exámenes; propone decisión|
+|**temario**|`evaluaciones.json.md`, `terminos.json`|`temario.json`|Plan ACTUAL y versiones|
+|**clases**|`evaluaciones.json.md`, `temario.json`, `terminos.json`|`temario.json`, `terminos.json`|Enseñanza + mini‑test + términos|
+|**ejercicios y prácticas**|`evaluaciones.json.md`, `temario.json`, `terminos.json`|`terminos.json` (y posible `temario.json`)|Práctica aplicada y feedback|
+|**términos**|`evaluaciones.json.md`, `temario.json`, `terminos.json`|`terminos.json`|SRS de conceptos/snippets|
 
 ### Archivos compartidos (detallado: propósito, campos y uso cruzado)
 
-#### `evaluaciones.json`
+#### `evaluaciones.json.md`
 
 - **Propósito**: diagnóstico inicial, exámenes periódicos, métricas y reglas de decisión de nivel.
     
@@ -153,9 +153,9 @@ Sistema de aprendizaje dentro de un **proyecto** de ChatGPT con:
 
 ### **Inicio del proyecto (primer uso)**
 
-1. **Instrucciones del proyecto**: crear `instrucciones_proyecto.md` en la **raíz del proyecto**. Debe incluir: **TEMA**, **objetivo**, **niveles esperados**, **rol del asistente** (experto + docente), **estilo de respuestas** (técnico y conciso), **frases de control por chat**, **reglas de consistencia**, **políticas** (no inventar datos; citar archivos), y **métricas/umbrales** de `evaluaciones.json`. **Todos los chats leen este archivo como punto de verdad**.
+1. **Instrucciones del proyecto**: crear `contexto.md` en la **raíz del proyecto**. Debe incluir: **TEMA**, **objetivo**, **niveles esperados**, **rol del asistente** (experto + docente), **estilo de respuestas** (técnico y conciso), **frases de control por chat**, **reglas de consistencia**, **políticas** (no inventar datos; citar archivos), y **métricas/umbrales** de `evaluaciones.json.md`. **Todos los chats leen este archivo como punto de verdad**.
     
-2. **Preparar archivos base**: crear `evaluaciones.json`, `temario.json`, `terminos.json` (vacíos o plantillas); definir `perfil.tema` y `nivel_objetivo`.
+2. **Preparar archivos base**: crear `evaluaciones.json.md`, `temario.json`, `terminos.json` (vacíos o plantillas); definir `perfil.tema` y `nivel_objetivo`.
     
 3. **Ejecutar diagnóstico**: en **evaluaciones** → `EJECUTAR_ASSESSMENT` → registrar `diagnostico_inicial`.
     
@@ -202,11 +202,11 @@ Sistema de aprendizaje dentro de un **proyecto** de ChatGPT con:
 
 |Chat|Archivos que usa|Archivos que actualiza (indirecto)|Propósito|
 |---|---|---|---|
-|**evaluaciones**|`evaluaciones.json`, `temario.json`|`evaluaciones.json`|Medir nivel y progreso; proponer promoción/mantener/replanificar según umbrales|
-|**temario**|`evaluaciones.json`, `terminos.json`|`temario.json`|Mantener el plan **ACTUAL** y versionar cambios alineados a resultados/lagunas|
-|**clases**|`evaluaciones.json`, `temario.json`, `terminos.json`|`temario.json`, `terminos.json`|Impartir contenido del módulo vigente, mini‑test y alta de términos/progreso|
-|**ejercicios y prácticas**|`evaluaciones.json`, `temario.json`, `terminos.json`|`terminos.json` (y posible `temario.json`)|Ejecutar práctica aplicada con criterios y micro‑feedback; detectar términos; proponer ajustes del plan|
-|**términos**|`evaluaciones.json`, `temario.json`, `terminos.json`|`terminos.json`|Consolidar conceptos/snippets mediante SRS; retroalimentar retención y refuerzos|
+|**evaluaciones**|`evaluaciones.json.md`, `temario.json`|`evaluaciones.json.md`|Medir nivel y progreso; proponer promoción/mantener/replanificar según umbrales|
+|**temario**|`evaluaciones.json.md`, `terminos.json`|`temario.json`|Mantener el plan **ACTUAL** y versionar cambios alineados a resultados/lagunas|
+|**clases**|`evaluaciones.json.md`, `temario.json`, `terminos.json`|`temario.json`, `terminos.json`|Impartir contenido del módulo vigente, mini‑test y alta de términos/progreso|
+|**ejercicios y prácticas**|`evaluaciones.json.md`, `temario.json`, `terminos.json`|`terminos.json` (y posible `temario.json`)|Ejecutar práctica aplicada con criterios y micro‑feedback; detectar términos; proponer ajustes del plan|
+|**términos**|`evaluaciones.json.md`, `temario.json`, `terminos.json`|`terminos.json`|Consolidar conceptos/snippets mediante SRS; retroalimentar retención y refuerzos|
 
 > **Consistencia**: para marcar un módulo como "hecho" se requieren **evidencias**. Si faltan, **pausar** cualquier cambio y registrar el issue.
 
@@ -224,7 +224,7 @@ ChatGPT **no guarda archivos**. Cuando pidas una actualización, imprimirá la *
 
 1. Tú le pides a la IA que actualice el archivo que está utilizando.
     
-2. La IA imprime el archivo completo (p. ej., `evaluaciones.json`) con la versión nueva
+2. La IA imprime el archivo completo (p. ej., `evaluaciones.json.md`) con la versión nueva
     
 3. Tú creas un respaldo: `<archivo>_backup_YYYYMMDD_vN.json`.
     
@@ -246,7 +246,7 @@ ChatGPT **no guarda archivos**. Cuando pidas una actualización, imprimirá la *
 
 |Chat|Frases de control|Archivos que pueden actualizar|
 |---|---|---|
-|**evaluaciones**|`EJECUTAR_ASSESSMENT`, `FORZAR_DIAGNOSTICO`, `FORZAR_EXAMEN`, `GENERAR_ACTUALIZACION evaluaciones.json`|`evaluaciones.json`|
+|**evaluaciones**|`EJECUTAR_ASSESSMENT`, `FORZAR_DIAGNOSTICO`, `FORZAR_EXAMEN`, `GENERAR_ACTUALIZACION evaluaciones.json.md`|`evaluaciones.json.md`|
 |**temario**|`GENERAR_ACTUALIZACION temario.json`|`temario.json`|
 |**clases**|`FINALIZAR_CLASE` → luego `GENERAR_ACTUALIZACION temario.json` y, si hubo términos, `GENERAR_ACTUALIZACION terminos.json`|`temario.json`, `terminos.json`|
 |**ejercicios y prácticas**|`REVISAR_PRACTICA` → si emergen conceptos, `GENERAR_ACTUALIZACION terminos.json`|`terminos.json`|
@@ -256,7 +256,7 @@ ChatGPT **no guarda archivos**. Cuando pidas una actualización, imprimirá la *
 
 ## 6. Descripción de los archivos base
 
-- **`evaluaciones.json`**: perfil (tema/nivel), diagnóstico, exámenes (teoría/práctica/aplicación), métricas y reglas; decide el rumbo (promoción/mantener/replanificar) y registra cambios en `historial`.
+- **`evaluaciones.json.md`**: perfil (tema/nivel), diagnóstico, exámenes (teoría/práctica/aplicación), métricas y reglas; decide el rumbo (promoción/mantener/replanificar) y registra cambios en `historial`.
     
 - **`temario.json`**: versiones del plan y una versión `ACTUAL` con objetivos, módulos, tareas, criterios y evidencias; guía qué impartir y practicar.
     
@@ -271,12 +271,12 @@ ChatGPT **no guarda archivos**. Cuando pidas una actualización, imprimirá la *
 
 |Paso|Chat|Entrada|Comando|Archivo actualizado|Salida principal|
 |---|---|---|---|---|---|
-|1|**evaluaciones**|Sin nivel o inicio de ciclo|`EJECUTAR_ASSESSMENT`|`evaluaciones.json`|Diagnóstico inicial (scores, fortalezas/debilidades)|
+|1|**evaluaciones**|Sin nivel o inicio de ciclo|`EJECUTAR_ASSESSMENT`|`evaluaciones.json.md`|Diagnóstico inicial (scores, fortalezas/debilidades)|
 |2|**temario**|Diagnóstico y prioridades|`GENERAR_ACTUALIZACION` del archivo `temario.json`|`temario.json`|Versión **ACTUAL** del plan (objetivos, módulos, tareas)|
 |3|**clases**|Módulo vigente|`FINALIZAR_CLASE`|`temario.json` y altas en `terminos.json`|Progreso de módulo, mini‑test, términos detectados|
 |4|**ejercicios y prácticas**|Tareas/katas del módulo|`REVISAR_PRACTICA`|Altas/ajustes en `terminos.json` (y si aplica `temario.json`)|Feedback por ejercicio, pendientes, refuerzos|
 |5|**términos**|Conceptos/snippets a consolidar|`GENERAR_ACTUALIZACION` del archivo `terminos.json`|`terminos.json`|Estados SRS y `proximo_repaso` actualizados|
-|6|**evaluaciones**|Cierre de ciclo corto|(examen periódico)|`evaluaciones.json`|Decisión: **promoción / mantener / replanificar** y retorno al paso 2|
+|6|**evaluaciones**|Cierre de ciclo corto|(examen periódico)|`evaluaciones.json.md`|Decisión: **promoción / mantener / replanificar** y retorno al paso 2|
 
 ### Secuencia detallada
 

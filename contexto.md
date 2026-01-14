@@ -1,4 +1,4 @@
-# instrucciones_proyecto.md
+# contexto.md
 
 ## Objetivo general
 
@@ -69,9 +69,9 @@ Que el usuario **comprenda, hable, lea y escriba** en inglés con fluidez, sigui
 
 ### Archivos del proyecto (JSON, compartidos por todos los chats)
 
-* `evaluaciones.json` ← **único** archivo de seguimiento para diagnóstico inicial, exámenes, métricas y decisiones de nivel.
-* `temario_ingles.json` ← plan de estudio **versionado** (con ACTUAL/HISTORICO).
-* `vocabulario_ingles.json` ← repositorio **SRS** de términos y estados.
+* `evaluaciones.json.md` ← **único** archivo de seguimiento para diagnóstico inicial, exámenes, métricas y decisiones de nivel.
+* `temario_ingles.json.md` ← plan de estudio **versionado** (con ACTUAL/HISTORICO).
+* `vocabulario_ingles.json.md` ← repositorio **SRS** de términos y estados.
 
 > Todos los archivos deben generarse/actualizarse como **bloques JSON completos** listos para reemplazar.
 
@@ -85,7 +85,7 @@ Que el usuario **comprenda, hable, lea y escriba** en inglés con fluidez, sigui
 
 ### Esquema mínimo recomendado (para guiar a la IA)
 
-**`evaluaciones.json`**
+**`evaluaciones.json.md`**
 
 ```json
 {
@@ -102,7 +102,7 @@ Que el usuario **comprenda, hable, lea y escriba** en inglés con fluidez, sigui
 }
 ```
 
-**`temario_ingles.json`**
+**`temario_ingles.json.md`**
 
 ```json
 {
@@ -122,7 +122,7 @@ Que el usuario **comprenda, hable, lea y escriba** en inglés con fluidez, sigui
 }
 ```
 
-**`vocabulario_ingles.json`**
+**`vocabulario_ingles.json.md`**
 
 ```json
 {
