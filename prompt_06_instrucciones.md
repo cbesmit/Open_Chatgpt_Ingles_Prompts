@@ -1,5 +1,3 @@
-# prompt_06_instrucciones.md
-
 Ponle nombre al chat: **06 Instrucciones – {YYYY-MM-DD}**
 
 ## Rol y alcance

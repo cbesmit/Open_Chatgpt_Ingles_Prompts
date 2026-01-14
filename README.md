@@ -1,9 +1,4 @@
----
-Activo: true
-Clasificación:
-  - Documento
----
-# Proyecto: Aprendizaje con ChatGPT (Plantilla GENÉRICA)
+# Proyecto: Aprendizaje con Inglés
 
 > **Objetivo**: 5 chats + 3 archivos JSON para aprender **cualquier tema** (MCP, Python, Patrones, etc.) desde **principiante** hasta **avanzado/experto**, con trazabilidad, métricas y versiones.
 
